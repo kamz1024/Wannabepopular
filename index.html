@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>wannabepopular — Become Popular. On Purpose.</title>
+<meta name="description" content="wannabepopular is a disruption-first digital marketing agency offering subscription marketing services: social media growth, influencer marketing, personal branding, content strategy, paid ads strategy, viral marketing and online visibility for creators, brands and small businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#07070c;
+  --ink2:#0e0e16;
+  --paper:#ffffff;
+  --pink:#ff2e88;
+  --purple:#8b2eff;
+  --blue:#2e9bff;
+  --gray:#9a9aae;
+  --line:rgba(255,255,255,.12);
+  --display:'Unbounded',sans-serif;
+  --body:'Space Grotesk',sans-serif;
+  --mono:'Space Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--paper);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--pink);color:#fff}
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--display);line-height:1.08;letter-spacing:-.01em}
+h1{font-size:clamp(2.3rem,7.5vw,5.2rem);font-weight:900}
+h2{font-size:clamp(1.7rem,4.5vw,3rem);font-weight:900}
+h3{font-size:clamp(1.05rem,2.4vw,1.35rem);font-weight:700}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--pink);display:inline-flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--pink);display:inline-block}
+.lead{font-size:clamp(1.05rem,2.2vw,1.3rem);color:#d7d7e2;max-width:46ch}
+.muted{color:var(--gray)}
+
+/* ---------- shell ---------- */
+.wrap{width:min(1180px,92vw);margin:0 auto}
+section{padding:clamp(64px,9vw,120px) 0}
+.page{display:none}
+.page.active{display:block;animation:pagein .45s ease both}
+@keyframes pagein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(7,7,12,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--display);font-weight:900;font-size:1.02rem;letter-spacing:-.02em;white-space:nowrap}
+.logo em{font-style:normal;background:linear-gradient(100deg,var(--pink),var(--purple) 55%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.navlinks{display:flex;gap:1.6rem;align-items:center}
+.navlinks a{font-size:.92rem;color:#cfcfdd;padding:.35rem 0;border-bottom:2px solid transparent;transition:.2s}
+.navlinks a:hover{color:#fff}
+.navlinks a.on{color:#fff;border-bottom-color:var(--pink)}
+.burger{display:none;background:none;border:1px solid var(--line);color:#fff;border-radius:10px;padding:.5rem .7rem;font-family:var(--mono);font-size:.8rem;cursor:pointer}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-block;font-family:var(--display);font-weight:700;font-size:.85rem;padding:.95rem 1.6rem;border-radius:14px;border:2px solid transparent;cursor:pointer;transition:transform .18s,box-shadow .18s;text-align:center}
+.btn:active{transform:scale(.97)}
+.btn-hot{background:linear-gradient(100deg,var(--pink),var(--purple));color:#fff;box-shadow:0 8px 30px rgba(255,46,136,.35)}
+.btn-hot:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,46,255,.45)}
+.btn-ghost{border-color:var(--line);color:#fff;background:transparent}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+.btn-sm{padding:.7rem 1.2rem;font-size:.75rem}
+.btn-wide{width:100%}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(70px,10vw,130px) 0 clamp(60px,8vw,110px);overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-bg .blob{position:absolute;border-radius:50%;filter:blur(120px);opacity:.35}
+.b1{width:480px;height:480px;background:var(--purple);top:-160px;right:-120px}
+.b2{width:380px;height:380px;background:var(--pink);bottom:-180px;left:-140px;opacity:.25}
+.b3{width:300px;height:300px;background:var(--blue);top:30%;left:55%;opacity:.18}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.25fr .85fr;gap:3rem;align-items:center}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;inset:0;overflow:hidden;clip-path:inset(0 0 100% 0);pointer-events:none}
+.glitch::before{color:var(--pink);z-index:-1}
+.glitch::after{color:var(--blue);z-index:-2}
+.glitch.zap::before{animation:gl1 .5s steps(2,end)}
+.glitch.zap::after{animation:gl2 .5s steps(2,end)}
+@keyframes gl1{0%{clip-path:inset(20% 0 60% 0);transform:translate(-5px,-2px)}50%{clip-path:inset(60% 0 10% 0);transform:translate(4px,2px)}100%{clip-path:inset(0 0 100% 0);transform:none}}
+@keyframes gl2{0%{clip-path:inset(55% 0 20% 0);transform:translate(5px,2px)}50%{clip-path:inset(10% 0 70% 0);transform:translate(-4px,-2px)}100%{clip-path:inset(0 0 100% 0);transform:none}}
+.hero h1 .pop{background:linear-gradient(100deg,var(--pink),var(--purple) 60%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .cta-row{display:flex;gap:1rem;flex-wrap:wrap;margin:2rem 0 1.8rem}
+.hero .intro{font-size:1rem;color:#bdbdcd;max-width:52ch;border-left:3px solid var(--purple);padding-left:1rem}
+
+/* notification stack */
+.stack{display:flex;flex-direction:column;gap:1rem;position:relative}
+.notif{background:var(--ink2);border:1px solid var(--line);border-radius:18px;padding:1rem 1.2rem;display:flex;gap:.9rem;align-items:center;box-shadow:0 18px 50px rgba(0,0,0,.45);animation:float 5s ease-in-out infinite}
+.notif:nth-child(2){animation-delay:1.2s;transform:translateX(22px)}
+.notif:nth-child(3){animation-delay:2.4s}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -8px}}
+.notif .dot{width:42px;height:42px;border-radius:12px;flex:none;display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:.8rem}
+.d-pink{background:rgba(255,46,136,.18);color:var(--pink)}
+.d-purple{background:rgba(139,46,255,.18);color:var(--purple)}
+.d-blue{background:rgba(46,155,255,.18);color:var(--blue)}
+.notif b{display:block;font-size:.92rem}
+.notif span{font-size:.78rem;color:var(--gray);font-family:var(--mono)}
+
+/* ---------- marquee ---------- */
+.ticker{border-block:1px solid var(--line);background:linear-gradient(100deg,rgba(255,46,136,.08),rgba(139,46,255,.08),rgba(46,155,255,.08));overflow:hidden;padding:.85rem 0}
+.ticker-track{display:flex;gap:3rem;white-space:nowrap;animation:scroll 28s linear infinite;width:max-content}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.ticker span{font-family:var(--display);font-weight:700;font-size:.85rem;color:#e8e8f2}
+.ticker i{font-style:normal;color:var(--pink)}
+
+/* ---------- cards & grids ---------- */
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.card{background:var(--ink2);border:1px solid var(--line);border-radius:20px;padding:1.7rem;transition:transform .22s,border-color .22s}
+.card:hover{transform:translateY(-5px);border-color:rgba(255,46,136,.45)}
+.card h3{margin:.7rem 0 .55rem}
+.card p{font-size:.95rem;color:#c4c4d4}
+.tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;padding:.32rem .65rem;border-radius:999px;border:1px solid var(--line);color:var(--gray)}
+.tag.t-pink{color:var(--pink);border-color:rgba(255,46,136,.4)}
+.tag.t-purple{color:var(--purple);border-color:rgba(139,46,255,.45)}
+.tag.t-blue{color:var(--blue);border-color:rgba(46,155,255,.45)}
+.sec-head{max-width:720px;margin-bottom:2.6rem}
+.sec-head h2{margin:.8rem 0 1rem}
+.light{background:var(--paper);color:var(--ink)}
+.light .lead,.light .card p{color:#3c3c4d}
+.light .card{background:#fff;border-color:rgba(7,7,12,.1);box-shadow:0 10px 30px rgba(7,7,12,.06)}
+.light .muted{color:#5d5d70}
+.light .tag{color:#5d5d70;border-color:rgba(7,7,12,.18)}
+
+/* chips */
+.chips{display:flex;flex-wrap:wrap;gap:.8rem}
+.chip{font-family:var(--display);font-weight:700;font-size:.82rem;padding:.85rem 1.3rem;border-radius:999px;border:2px solid var(--line);transition:.2s}
+.chip:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+
+/* steps */
+.step{position:relative;padding-left:0}
+.step .k{font-family:var(--mono);font-weight:700;color:var(--blue);font-size:.78rem;letter-spacing:.2em}
+
+/* versus */
+.versus{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.vs-col{border-radius:20px;padding:1.8rem;border:1px solid var(--line)}
+.vs-them{background:var(--ink2)}
+.vs-us{background:linear-gradient(150deg,rgba(255,46,136,.14),rgba(139,46,255,.14) 55%,rgba(46,155,255,.12));border-color:rgba(255,46,136,.4)}
+.vs-col ul{list-style:none;margin-top:1rem}
+.vs-col li{padding:.55rem 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.vs-col li:last-child{border:none}
+.vs-them li{color:var(--gray)}
+.vs-them li::before{content:"✕ ";color:#55556a}
+.vs-us li::before{content:"→ ";color:var(--pink);font-weight:700}
+
+/* ---------- pricing ---------- */
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;align-items:stretch}
+.plan{display:flex;flex-direction:column;background:var(--ink2);border:1px solid var(--line);border-radius:22px;padding:1.7rem;position:relative;transition:transform .22s,border-color .22s}
+.plan:hover{transform:translateY(-6px)}
+.plan .pname{font-family:var(--display);font-weight:900;font-size:1.15rem}
+.plan .pprice{font-family:var(--display);font-weight:900;font-size:2.2rem;margin:.7rem 0 .15rem}
+.plan .pprice small{font-size:.85rem;color:var(--gray);font-family:var(--mono);font-weight:400}
+.plan .pfor{font-size:.83rem;color:var(--gray);min-height:3.3em;margin-bottom:.9rem}
+.plan ul{list-style:none;flex:1;margin-bottom:1.4rem}
+.plan li{font-size:.88rem;padding:.42rem 0 .42rem 1.4rem;position:relative;color:#d2d2e0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.plan li::before{content:"+";position:absolute;left:0;color:var(--blue);font-family:var(--mono);font-weight:700}
+.plan.hot{border-color:var(--pink);background:linear-gradient(170deg,rgba(255,46,136,.12),var(--ink2) 45%)}
+.plan.hot li::before{color:var(--pink)}
+.flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(100deg,var(--pink),var(--purple));font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:.32rem .8rem;border-radius:999px;white-space:nowrap}
+.enterprise{margin-top:1.6rem;border-radius:22px;padding:2rem;display:flex;gap:1.6rem;align-items:center;justify-content:space-between;flex-wrap:wrap;background:linear-gradient(100deg,rgba(255,46,136,.16),rgba(139,46,255,.18) 50%,rgba(46,155,255,.16));border:1px solid rgba(139,46,255,.45)}
+
+/* ---------- team ---------- */
+.founder{display:grid;grid-template-columns:.8fr 1.2fr;gap:2.4rem;align-items:center}
+.avatar{aspect-ratio:1;border-radius:24px;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:2.6rem;background:linear-gradient(140deg,var(--pink),var(--purple) 60%,var(--blue));position:relative;overflow:hidden}
+.avatar::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(7,7,12,.16) 5px 6px)}
+.avatar.small{font-size:1.5rem;border-radius:18px;width:72px;height:72px;flex:none}
+.tm{display:flex;gap:1.1rem;align-items:flex-start}
+.tm b{font-family:var(--display);font-size:.95rem}
+.tm .role{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:.2rem 0 .5rem;display:block}
+.bigquote{font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,3vw,1.8rem);line-height:1.4;max-width:880px}
+.bigquote em{font-style:normal;color:var(--pink)}
+
+/* ---------- case studies ---------- */
+.case .meta{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1rem}
+.case dl{margin-top:1rem;font-size:.92rem}
+.case dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-top:.9rem}
+.case dd{color:#c4c4d4;margin-top:.25rem}
+.disclaimer{margin-top:2.2rem;border:1px dashed var(--line);border-radius:16px;padding:1.2rem 1.5rem;font-family:var(--mono);font-size:.8rem;color:var(--gray)}
+
+/* ---------- faq ---------- */
+.faq-item{border:1px solid var(--line);border-radius:16px;margin-bottom:.9rem;background:var(--ink2);overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:#fff;font-family:var(--display);font-weight:700;font-size:.95rem;text-align:left;padding:1.15rem 1.4rem;cursor:pointer;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.faq-q .pm{font-family:var(--mono);color:var(--pink);font-size:1.1rem;transition:transform .25s}
+.faq-item.open .pm{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 1.4rem;color:#c4c4d4;font-size:.95rem}
+.faq-item.open .faq-a{padding-bottom:1.25rem;max-height:300px}
+
+/* ---------- contact ---------- */
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3rem;align-items:start}
+.form{background:var(--ink2);border:1px solid var(--line);border-radius:22px;padding:2rem;display:grid;gap:1.05rem}
+.field label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin-bottom:.4rem}
+.field input,.field select,.field textarea{width:100%;background:#13131e;border:1px solid var(--line);border-radius:12px;color:#fff;font-family:var(--body);font-size:.95rem;padding:.8rem .95rem;outline:none;transition:border-color .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--pink)}
+.field textarea{min-height:96px;resize:vertical}
+.form-note{font-family:var(--mono);font-size:.72rem;color:var(--gray)}
+.sent{display:none;border:1px solid rgba(46,155,255,.5);background:rgba(46,155,255,.1);border-radius:14px;padding:1rem 1.2rem;font-size:.92rem}
+
+/* ---------- final cta ---------- */
+.mega{position:relative;text-align:center;padding:clamp(80px,11vw,150px) 0;overflow:hidden}
+.mega h2{font-size:clamp(2rem,6.5vw,4.2rem)}
+.mega .blob{position:absolute;border-radius:50%;filter:blur(110px);opacity:.3;pointer-events:none}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:3rem 0 2.2rem}
+.f-grid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+.f-links{display:flex;gap:1.6rem;flex-wrap:wrap}
+.f-links a{font-size:.88rem;color:var(--gray)}
+.f-links a:hover{color:#fff}
+.f-base{font-family:var(--mono);font-size:.72rem;color:#55556a;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .notif,.ticker-track{animation:none}
+  .page.active{animation:none}
+}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .grid3,.grid4,.plans{grid-template-columns:repeat(2,1fr)}
+  .hero-grid,.founder,.contact-grid{grid-template-columns:1fr}
+  .stack{max-width:420px}
+}
+@media (max-width:720px){
+  .navlinks{position:fixed;inset:68px 0 auto 0;background:rgba(7,7,12,.97);flex-direction:column;align-items:flex-start;padding:1.4rem 5vw 2rem;gap:1.1rem;border-bottom:1px solid var(--line);display:none}
+  .navlinks.show{display:flex}
+  .burger{display:block}
+  .grid2,.grid3,.grid4,.plans,.versus{grid-template-columns:1fr}
+  .enterprise{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="logo">wannabe<em>popular</em><span style="color:var(--pink)">_</span></a>
+    <nav class="navlinks" id="navlinks">
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#services" data-nav="services">Services</a>
+      <a href="#pricing" data-nav="pricing">Pricing</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#cases" data-nav="cases">Growth Lab</a>
+      <a href="#faq" data-nav="faq">FAQ</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+      <a href="#contact" class="btn btn-hot btn-sm">Start Getting Popular</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Toggle menu">MENU</button>
+  </div>
+</header>
+
+<!-- ============================== HOME ============================== -->
+<main>
+<div class="page" id="page-home">
+
+  <section class="hero">
+    <div class="hero-bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Disruption-first digital marketing agency</span>
+        <h1 style="margin-top:1rem"><span class="glitch" data-text="Become Popular.">Become Popular.</span><br><span class="pop glitch" data-text="On Purpose.">On Purpose.</span></h1>
+        <p class="lead" style="margin-top:1.3rem">wannabepopular is a disruption-first digital marketing agency for influencers, brands, and businesses that refuse to stay invisible.</p>
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-hot">Start Getting Popular</a>
+          <a href="#pricing" class="btn btn-ghost">View Subscription Plans</a>
+        </div>
+        <p class="intro">We build attention engines. We turn unknown accounts into recognizable names, quiet brands into conversations, and ordinary campaigns into moments people actually talk about.</p>
+      </div>
+      <div class="stack" aria-hidden="true">
+        <div class="notif"><div class="dot d-pink">+1K</div><div><b>Your profile is getting noticed</b><span>followers up 312% this quarter</span></div></div>
+        <div class="notif"><div class="dot d-purple">▶</div><div><b>Your reel is taking off</b><span>1.2M views · 48K shares</span></div></div>
+        <div class="notif"><div class="dot d-blue">@</div><div><b>People are talking about you</b><span>tagged by 37 accounts today</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker">
+      <span>Popularity is engineered <i>✦</i></span>
+      <span>Attention is the new currency <i>✦</i></span>
+      <span>Stop blending in. Start breaking through <i>✦</i></span>
+      <span>We make brands loud enough to matter <i>✦</i></span>
+      <span>Not native. Not quiet. Not forgettable <i>✦</i></span>
+      <span>Built for creators, brands &amp; businesses that want to be seen <i>✦</i></span>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Why wannabepopular exists</span>
+        <h2>The internet doesn't reward the best. It rewards the <span style="color:var(--pink)">most visible</span>.</h2>
+        <p class="lead">Most marketing is built to blend in. Native, safe, forgettable. We exist for the people and brands who can't afford to be wallpaper — the ones who need online visibility, cultural relevance, and audiences that actually care.</p>
+      </div>
+      <p class="bigquote rv">We don't help you fit in. <em>We make you impossible to ignore.</em></p>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Who we work with</span>
+        <h2>If you want attention, you're our people.</h2>
+      </div>
+      <div class="chips rv">
+        <span class="chip">Influencers</span>
+        <span class="chip">Creators</span>
+        <span class="chip">Brands</span>
+        <span class="chip">Startups</span>
+        <span class="chip">Small businesses</span>
+        <span class="chip">Founders</span>
+        <span class="chip">Public-facing personalities</span>
+        <span class="chip">Product launches</span>
+      </div>
+      <p class="muted rv" style="margin-top:1.6rem;max-width:60ch">From a creator with 900 followers to a brand entering a crowded market — the playbook scales, the goal doesn't change: more reach, more recognition, more results.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">What we do</span>
+        <h2>Attention engines, built to order.</h2>
+        <p class="lead">Social media growth, personal branding, content strategy, paid ads strategy, viral marketing — assembled into systems that compound month after month.</p>
+      </div>
+      <div class="grid3">
+        <div class="card rv"><span class="tag t-pink">Growth</span><h3>Social Media Growth</h3><p>Platform-by-platform strategy that turns posting into progress — built on data, trends, and brand psychology.</p></div>
+        <div class="card rv"><span class="tag t-purple">Creative</span><h3>Viral Campaign Concepts</h3><p>Ideas engineered to travel. Hooks, formats, and moments designed to get shared, stitched, and screenshotted.</p></div>
+        <div class="card rv"><span class="tag t-blue">Paid</span><h3>Paid Ads Strategy</h3><p>Performance campaigns that buy attention efficiently and convert it into followers, leads, and revenue.</p></div>
+        <div class="card rv"><span class="tag t-pink">Positioning</span><h3>Personal Brand Building</h3><p>Sharpen who you are online so the right audience recognizes you instantly — and remembers you.</p></div>
+        <div class="card rv"><span class="tag t-purple">Content</span><h3>Short-Form Video Strategy</h3><p>TikTok, Reels, and Shorts systems: hooks, scripts, and posting cadences built for the scroll.</p></div>
+        <div class="card rv"><span class="tag t-blue">Intelligence</span><h3>Trend &amp; Disruption Research</h3><p>We watch the culture so you move first — trend windows, market gaps, and disruption plays.</p></div>
+      </div>
+      <div class="rv" style="margin-top:2rem"><a href="#services" class="btn btn-ghost">See all 15 services →</a></div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Our subscription model</span>
+        <h2>Marketing power, on subscription.</h2>
+        <p class="lead">No bloated retainers. No six-month lock-ins. Subscription marketing services that start at $20/month and scale as your ambition does.</p>
+      </div>
+      <div class="grid3">
+        <div class="card step rv"><span class="k">STEP_01</span><h3>Subscribe</h3><p>Pick a plan that matches your stage — creator, brand, or business. Upgrade, downgrade, or cancel anytime.</p></div>
+        <div class="card step rv"><span class="k">STEP_02</span><h3>We build your system</h3><p>Audits, content direction, campaign concepts, and strategy delivered every single month — built around your goals.</p></div>
+        <div class="card step rv"><span class="k">STEP_03</span><h3>You get visible</h3><p>You execute with a clear plan (or scale with us), track growth in monthly reports, and become harder to ignore.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Why we're different</span>
+        <h2>Traditional agencies decorate. <span style="color:var(--blue)">We disrupt.</span></h2>
+      </div>
+      <div class="versus rv">
+        <div class="vs-col vs-them">
+          <h3 class="muted">The typical agency</h3>
+          <ul>
+            <li>Posts for the sake of posting</li>
+            <li>Recycled templates and safe ideas</li>
+            <li>Vanity reports nobody reads</li>
+            <li>Slow, corporate, committee-driven</li>
+            <li>Priced for enterprises only</li>
+          </ul>
+        </div>
+        <div class="vs-col vs-us">
+          <h3>wannabepopular</h3>
+          <ul>
+            <li>Every post built for attention, movement &amp; measurable growth</li>
+            <li>Trend-hacking, viral systems, creator positioning</li>
+            <li>Reports tied to visibility &amp; outcomes</li>
+            <li>Fast, opinionated, internet-native</li>
+            <li>Subscriptions from $20/month</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Pricing preview</span>
+        <h2>Four ways to get loud.</h2>
+        <p class="lead">Every plan is built around one thing: making you more visible than you were last month.</p>
+      </div>
+      <div class="grid4">
+        <div class="card rv"><span class="tag">Tier 1</span><h3>Spark</h3><p style="font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--ink)">$20<span class="muted" style="font-size:.8rem;font-family:var(--mono)">/mo</span></p><p>For new creators and early-stage brands ready to get seen.</p></div>
+        <div class="card rv"><span class="tag">Tier 2</span><h3>Buzz</h3><p style="font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--ink)">$50<span class="muted" style="font-size:.8rem;font-family:var(--mono)">/mo</span></p><p>For growing influencers, small brands, and side businesses.</p></div>
+        <div class="card rv" style="border-color:var(--pink)"><span class="tag t-pink">Tier 3 · Popular</span><h3>Hype Engine</h3><p style="font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--ink)">$100<span class="muted" style="font-size:.8rem;font-family:var(--mono)">/mo</span></p><p>For serious creators and businesses ready to scale.</p></div>
+        <div class="card rv"><span class="tag">Tier 4</span><h3>Fame Mode</h3><p style="font-family:var(--display);font-weight:900;font-size:1.6rem;color:var(--ink)">$250<span class="muted" style="font-size:.8rem;font-family:var(--mono)">/mo</span></p><p>For anyone who wants aggressive visibility, every week.</p></div>
+      </div>
+      <div class="rv" style="margin-top:2rem"><a href="#pricing" class="btn btn-hot">Compare all plans</a></div>
+    </div>
+  </section>
+
+  <section class="mega">
+    <div class="blob b1" style="background:var(--pink);width:420px;height:420px;left:8%;top:10%"></div>
+    <div class="blob b3" style="background:var(--blue);width:380px;height:380px;right:6%;bottom:0"></div>
+    <div class="wrap rv" style="position:relative">
+      <span class="eyebrow" style="justify-content:center;display:inline-flex">Final boarding call</span>
+      <h2 style="margin:1rem auto">Invisible brands don't get chosen.</h2>
+      <p class="lead" style="margin:0 auto 2rem;max-width:54ch">Your competitors are posting right now. The question is who gets remembered. Start engineering your popularity today.</p>
+      <a href="#contact" class="btn btn-hot">Start Getting Popular</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================== SERVICES ============================== -->
+<div class="page" id="page-services">
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Services</span>
+        <h2>Everything it takes to get noticed. <span style="color:var(--purple)">Nothing it takes to blend in.</span></h2>
+        <p class="lead">We do not post for the sake of posting. Every campaign is built to create attention, movement, and measurable growth.</p>
+      </div>
+      <div class="grid3">
+        <div class="card rv"><span class="tag t-pink">Growth</span><h3>Social Media Growth Strategy</h3><p>A complete social media strategy for your platforms: positioning, cadence, formats, and growth levers chosen for your niche — not copied from someone else's.</p></div>
+        <div class="card rv"><span class="tag t-purple">Positioning</span><h3>Influencer Branding &amp; Positioning</h3><p>Define what you stand for, who you speak to, and why people should follow. Influencer marketing starts with being unmistakable.</p></div>
+        <div class="card rv"><span class="tag t-blue">Content</span><h3>Content Calendar Creation</h3><p>A monthly content calendar that removes guesswork: what to post, when to post it, and the strategic reason behind every slot.</p></div>
+        <div class="card rv"><span class="tag t-purple">Content</span><h3>Short-Form Video Strategy</h3><p>TikTok, Instagram Reels, and YouTube Shorts systems: scroll-stopping hooks, retention structures, and formats built for repeat virality.</p></div>
+        <div class="card rv"><span class="tag t-blue">Paid</span><h3>Paid Ads Strategy &amp; Campaign Management</h3><p>Full-funnel paid ads strategy across Meta, TikTok, and Google — targeting, creative direction, testing plans, and budget logic that converts.</p></div>
+        <div class="card rv"><span class="tag t-pink">Awareness</span><h3>Brand Awareness Campaigns</h3><p>Campaigns engineered to put your name in front of the right people repeatedly, until familiarity turns into preference.</p></div>
+        <div class="card rv"><span class="tag t-purple">Creative</span><h3>Viral Campaign Concepts</h3><p>Big-swing ideas designed to travel: shareable formats, cultural hooks, and moments that earn attention instead of renting it.</p></div>
+        <div class="card rv"><span class="tag t-pink">Positioning</span><h3>Personal Brand Building</h3><p>Personal branding for founders, experts, and creators — turn your face and your point of view into your most valuable asset.</p></div>
+        <div class="card rv"><span class="tag t-blue">Leads</span><h3>Business Lead Generation Campaigns</h3><p>Visibility that pays the bills: campaigns and funnels built to turn attention into enquiries, bookings, and sales for small businesses.</p></div>
+        <div class="card rv"><span class="tag t-pink">Community</span><h3>Community Growth &amp; Engagement Strategy</h3><p>Move from passive followers to active community: engagement loops, conversation starters, and retention systems that keep people around.</p></div>
+        <div class="card rv"><span class="tag t-purple">Intelligence</span><h3>Trend Research &amp; Market Disruption Planning</h3><p>Weekly cultural radar plus disruption plays: where your market is asleep, and exactly how to wake it up first.</p></div>
+        <div class="card rv"><span class="tag t-blue">Data</span><h3>Monthly Performance Reporting</h3><p>Clear monthly reports on reach, growth, and engagement — what worked, what didn't, and what we're doing about it next month.</p></div>
+        <div class="card rv"><span class="tag t-blue">Conversion</span><h3>Landing Page &amp; Funnel Strategy</h3><p>Attention is step one. We design the landing pages and funnels that turn visitors into subscribers, leads, and customers.</p></div>
+        <div class="card rv"><span class="tag t-purple">Collabs</span><h3>Creator Collaboration Strategy</h3><p>Find the right creators, structure the right collabs, and borrow audiences that genuinely overlap with yours.</p></div>
+        <div class="card rv"><span class="tag t-pink">Reputation</span><h3>Reputation &amp; Visibility Management</h3><p>Control the narrative: search presence, profile consistency, and proactive visibility so the internet tells your story the way you want it told.</p></div>
+      </div>
+      <div class="rv" style="margin-top:2.4rem;display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="#pricing" class="btn btn-hot">View Subscription Plans</a>
+        <a href="#contact" class="btn btn-ghost">Book a Strategy Call</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================== PRICING ============================== -->
+<div class="page" id="page-pricing">
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Pricing</span>
+        <h2>Pick your level of <span style="color:var(--pink)">loud</span>.</h2>
+        <p class="lead">Every plan is built around one thing: making you more visible than you were last month. Cancel anytime — but you won't want to.</p>
+      </div>
+      <div class="plans">
+        <div class="plan rv">
+          <span class="pname">Spark</span>
+          <div class="pprice">$20<small>/month</small></div>
+          <p class="pfor">New creators, small personal brands, early-stage businesses</p>
+          <ul>
+            <li>Monthly social media audit</li>
+            <li>Basic content direction</li>
+            <li>5 post ideas per month</li>
+            <li>Hashtag &amp; keyword suggestions</li>
+            <li>Profile optimization checklist</li>
+            <li>Monthly growth tips</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-wide" data-plan="Spark">Start Small. Get Seen.</a>
+        </div>
+        <div class="plan rv">
+          <span class="pname">Buzz</span>
+          <div class="pprice">$50<small>/month</small></div>
+          <p class="pfor">Growing influencers, small brands, and side businesses</p>
+          <ul>
+            <li>Everything in Spark</li>
+            <li>12 monthly content ideas</li>
+            <li>1 monthly campaign concept</li>
+            <li>Competitor visibility check</li>
+            <li>Bio &amp; profile optimization</li>
+            <li>Monthly content calendar</li>
+            <li>Basic performance review</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-wide" data-plan="Buzz">Create the Buzz</a>
+        </div>
+        <div class="plan hot rv">
+          <span class="flag">Most subscribed</span>
+          <span class="pname">Hype Engine</span>
+          <div class="pprice">$100<small>/month</small></div>
+          <p class="pfor">Serious creators, brands, and businesses ready to scale</p>
+          <ul>
+            <li>Everything in Buzz</li>
+            <li>25 monthly content ideas</li>
+            <li>Weekly trend opportunities</li>
+            <li>2 campaign concepts per month</li>
+            <li>Paid ad strategy recommendations</li>
+            <li>Short-form video hooks &amp; scripts</li>
+            <li>Brand positioning review</li>
+            <li>Monthly growth report</li>
+          </ul>
+          <a href="#contact" class="btn btn-hot btn-wide" data-plan="Hype Engine">Turn Attention Into Momentum</a>
+        </div>
+        <div class="plan rv">
+          <span class="pname">Fame Mode</span>
+          <div class="pprice">$250<small>/month</small></div>
+          <p class="pfor">Influencers, brands, founders &amp; businesses that want aggressive visibility</p>
+          <ul>
+            <li>Everything in Hype Engine</li>
+            <li>Full monthly growth strategy</li>
+            <li>50 monthly content ideas</li>
+            <li>Weekly campaign planning</li>
+            <li>Viral concept development</li>
+            <li>Influencer collaboration strategy</li>
+            <li>Paid campaign direction</li>
+            <li>Landing page &amp; funnel recommendations</li>
+            <li>Priority support</li>
+            <li>Monthly executive strategy call</li>
+            <li>Advanced visibility report</li>
+          </ul>
+          <a href="#contact" class="btn btn-ghost btn-wide" data-plan="Fame Mode">Go Fame Mode</a>
+        </div>
+      </div>
+      <div class="enterprise rv">
+        <div>
+          <span class="tag t-purple">Enterprise</span>
+          <h3 style="margin:.7rem 0 .4rem;font-size:1.4rem">Unavoidable</h3>
+          <p style="max-width:52ch;color:#d7d7e2;font-size:.95rem">Custom pricing for brands, agencies, public figures, product launches, and large-scale campaigns. When visibility is mission-critical, we build the whole machine.</p>
+        </div>
+        <a href="#contact" class="btn btn-hot" data-plan="Unavoidable">Build a Custom Growth Machine</a>
+      </div>
+      <p class="muted" style="margin-top:1.8rem;font-family:var(--mono);font-size:.78rem">All plans are monthly subscriptions. Upgrade, downgrade, or cancel anytime. Ad spend billed separately to your own ad accounts.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============================== ABOUT ============================== -->
+<div class="page" id="page-about">
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">About us</span>
+        <h2>Attention is not luck. <span style="color:var(--blue)">It's engineered.</span></h2>
+        <p class="lead">wannabepopular was born from a simple observation: great creators and great products lose every day to louder, sharper, better-positioned competitors. We exist to flip that.</p>
+      </div>
+      <div class="founder rv">
+        <div class="avatar">KS</div>
+        <div>
+          <span class="tag t-pink">Founder &amp; CEO</span>
+          <h3 style="font-size:1.6rem;margin:.8rem 0 .2rem">Kamalesh S</h3>
+          <p style="color:#d2d2e0">Kamalesh S founded wannabepopular with one belief: attention is not luck, it is engineered. As CEO, he leads the agency's strategy, growth direction, client positioning, and disruptive campaign philosophy. A sharp, modern operator with a deep understanding of internet culture, brand visibility, and digital systems, his vision is to help creators, brands, and businesses stop waiting to be discovered and start building visibility deliberately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light" style="padding-top:clamp(50px,7vw,90px)">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">The team</span>
+        <h2>Attention architects.</h2>
+      </div>
+      <div class="grid2">
+        <div class="card tm rv"><div class="avatar small">MF</div><div><b>Maya Fernandes</b><span class="role">Chief Strategy Officer</span><p>Maya leads brand positioning, campaign strategy, and growth planning. She specializes in turning vague brand ideas into sharp market narratives.</p></div></div>
+        <div class="card tm rv"><div class="avatar small">AM</div><div><b>Arjun Mehta</b><span class="role">Head of Performance Marketing</span><p>Arjun manages paid media strategy, funnel optimization, campaign testing, and conversion-focused growth systems.</p></div></div>
+        <div class="card tm rv"><div class="avatar small">LD</div><div><b>Leah D'Souza</b><span class="role">Creative Director</span><p>Leah leads creative concepts, visual identity direction, campaign messaging, and content ideas designed to stop scrolling.</p></div></div>
+        <div class="card tm rv"><div class="avatar small">RN</div><div><b>Rohan Nair</b><span class="role">Head of Creator Growth</span><p>Rohan focuses on influencer strategy, personal branding, creator monetization, and audience-building systems.</p></div></div>
+        <div class="card tm rv"><div class="avatar small">NR</div><div><b>Nadia Rahman</b><span class="role">Client Success Lead</span><p>Nadia manages client communication, monthly reporting, onboarding, and campaign coordination to keep every subscription moving forward.</p></div></div>
+      </div>
+      <p class="bigquote rv" style="margin-top:2.6rem">We are strategists, creators, analysts, campaign builders, trend watchers, and attention architects. Our job is not to make your brand look busy. <em>Our job is to make people notice.</em></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap rv" style="text-align:center">
+      <h2>Want this team in your corner?</h2>
+      <p class="lead" style="margin:1rem auto 2rem">One subscription. A full bench of strategists. Zero excuses for staying invisible.</p>
+      <a href="#contact" class="btn btn-hot">Book a Strategy Call</a>
+    </div>
+  </section>
+</div>
+
+<!-- ============================== CASES ============================== -->
+<div class="page" id="page-cases">
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Growth Lab</span>
+        <h2>Growth experiments, not <span style="color:var(--purple)">guesswork</span>.</h2>
+        <p class="lead">Sample growth scenarios that show how we think. Each one is a blueprint of the systems we build inside real subscriptions.</p>
+      </div>
+      <div class="grid3">
+        <div class="card case rv">
+          <div class="meta"><span class="tag t-pink">Sample scenario</span><span class="tag">Local business</span></div>
+          <h3>The Invisible Café</h3>
+          <dl>
+            <dt>The problem</dt><dd>A local café needed attention in a crowded market full of identical coffee shops.</dd>
+            <dt>The system</dt><dd>A 30-day social content system built around signature drinks, real customer reactions, and short-form reels designed for local discovery.</dd>
+            <dt>The focus</dt><dd>Turn the café from "another option" into the place people recognize before they've even visited.</dd>
+          </dl>
+        </div>
+        <div class="card case rv">
+          <div class="meta"><span class="tag t-purple">Sample scenario</span><span class="tag">Creator</span></div>
+          <h3>The Creator With 900 Followers</h3>
+          <dl>
+            <dt>The problem</dt><dd>A lifestyle creator had inconsistent posting, unclear positioning, and an audience that didn't know what to expect.</dd>
+            <dt>The system</dt><dd>A full profile rebuild: content pillars, scroll-stopping hooks, audience targeting, and a sustainable posting rhythm.</dd>
+            <dt>The focus</dt><dd>Make every post reinforce one clear identity — so growth compounds instead of resetting.</dd>
+          </dl>
+        </div>
+        <div class="card case rv">
+          <div class="meta"><span class="tag t-blue">Sample scenario</span><span class="tag">Startup</span></div>
+          <h3>The Startup Nobody Understood</h3>
+          <dl>
+            <dt>The problem</dt><dd>A tech startup had a strong product but weak messaging — visitors left without understanding the value.</dd>
+            <dt>The system</dt><dd>Simplified the story, created comparison content, and built a founder-led visibility campaign across social and search.</dd>
+            <dt>The focus</dt><dd>Make the product instantly explainable, then make the founder the loudest credible voice in the niche.</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="disclaimer rv">⚠ Results vary based on niche, budget, consistency, market conditions, and platform behavior. We do not sell fake followers. We build visibility systems.</div>
+      <div class="rv" style="margin-top:2.2rem"><a href="#contact" class="btn btn-hot">Run Your Own Growth Experiment</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================== FAQ ============================== -->
+<div class="page" id="page-faq">
+  <section>
+    <div class="wrap" style="max-width:840px">
+      <div class="sec-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Straight answers. <span style="color:var(--pink)">No agency-speak.</span></h2>
+      </div>
+      <div id="faqlist">
+        <div class="faq-item"><button class="faq-q">What does wannabepopular do?<span class="pm">+</span></button><div class="faq-a"><p>We're a subscription-based digital marketing agency focused on one outcome: visibility. We build growth strategy, content systems, campaign concepts, paid ads strategy, and positioning that make creators, brands, and businesses impossible to ignore online.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Is this for influencers only?<span class="pm">+</span></button><div class="faq-a"><p>No. Influencers and creators are a big part of what we do, but the same visibility systems work for brands, startups, founders, and public-facing personalities. If attention helps your goals, we can help.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Can businesses use your service?<span class="pm">+</span></button><div class="faq-a"><p>Absolutely. Small business marketing is one of our strongest lanes — brand awareness, lead generation campaigns, local visibility, and content strategy built to bring customers through the door.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do you guarantee virality?<span class="pm">+</span></button><div class="faq-a"><p>No one can honestly guarantee virality — and anyone who does is selling you something broken. What we guarantee is a smarter system: better positioning, stronger hooks, sharper campaigns, and more shots on goal. Virality becomes a probability you engineer, not a lottery ticket.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do you run paid ads?<span class="pm">+</span></button><div class="faq-a"><p>Yes. Higher tiers include paid ads strategy and campaign direction across Meta, TikTok, and Google. Ad spend runs through your own ad accounts, so you keep full ownership and transparency.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do you create the content for us?<span class="pm">+</span></button><div class="faq-a"><p>We create the strategy layer: content ideas, calendars, hooks, scripts, and campaign concepts. You (or your team) handle filming and posting — or talk to us about a custom Unavoidable plan if you want deeper execution support.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Can I cancel anytime?<span class="pm">+</span></button><div class="faq-a"><p>Yes. Every plan is month-to-month. No lock-ins, no exit interviews, no guilt trips. We'd rather earn your renewal with results.</p></div></div>
+        <div class="faq-item"><button class="faq-q">What makes you different from normal agencies?<span class="pm">+</span></button><div class="faq-a"><p>Most agencies are built to keep clients comfortable. We're built to make clients visible. We move at internet speed, think in trends and culture, price by subscription instead of bloated retainers, and judge ourselves on attention and growth — not activity.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Do you use bots or fake followers?<span class="pm">+</span></button><div class="faq-a"><p>No. Fake numbers are weak strategy. We focus on positioning, content, campaigns, paid strategy, and visibility systems that can actually support a brand long-term.</p></div></div>
+        <div class="faq-item"><button class="faq-q">Which plan should I start with?<span class="pm">+</span></button><div class="faq-a"><p>Just starting out? Spark. Posting consistently but growing slowly? Buzz. Ready to treat growth seriously? Hype Engine. Want aggressive, weekly momentum? Fame Mode. Still unsure — book a free strategy call and we'll tell you straight.</p></div></div>
+      </div>
+      <div class="rv" style="margin-top:2.4rem"><a href="#contact" class="btn btn-hot">Still curious? Talk to us</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================== CONTACT ============================== -->
+<div class="page" id="page-contact">
+  <section>
+    <div class="wrap contact-grid">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h2 style="margin:1rem 0">Ready to Stop Being <span class="glitch pop" data-text="Invisible?">Invisible?</span></h2>
+        <p class="lead">Tell us who you are, what you are building, and how popular you want to become.</p>
+        <div style="margin-top:2rem;display:grid;gap:1rem">
+          <div class="notif"><div class="dot d-pink">⚡</div><div><b>Fast response</b><span>strategy replies within 24 hours</span></div></div>
+          <div class="notif" style="animation-delay:.8s"><div class="dot d-blue">☎</div><div><b>Free strategy call</b><span>20 minutes, zero pressure</span></div></div>
+          <div class="notif" style="animation-delay:1.6s"><div class="dot d-purple">∞</div><div><b>No lock-ins</b><span>month-to-month subscriptions</span></div></div>
+        </div>
+      </div>
+      <form class="form" id="contactform" novalidate>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" type="text" placeholder="Your name" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="you@domain.com" required></div>
+        <div class="field"><label for="f-type">Are you an influencer, brand, business, or founder?</label>
+          <select id="f-type"><option>Influencer / Creator</option><option>Brand</option><option>Business</option><option>Founder</option><option>Public figure</option><option>Other</option></select>
+        </div>
+        <div class="field"><label for="f-links">Current social links</label><input id="f-links" type="text" placeholder="instagram.com/you · tiktok.com/@you"></div>
+        <div class="field"><label for="f-budget">Monthly budget</label>
+          <select id="f-budget"><option>Under $50</option><option>$50 – $100</option><option>$100 – $250</option><option>$250 – $1,000</option><option>$1,000+</option></select>
+        </div>
+        <div class="field"><label for="f-problem">Biggest growth problem</label><textarea id="f-problem" placeholder="Low reach? No engagement? Unclear positioning? Tell us."></textarea></div>
+        <div class="field"><label for="f-tier">Preferred subscription tier</label>
+          <select id="f-tier"><option>Spark — $20/mo</option><option>Buzz — $50/mo</option><option>Hype Engine — $100/mo</option><option>Fame Mode — $250/mo</option><option>Unavoidable — Custom</option><option>Not sure yet</option></select>
+        </div>
+        <button type="submit" class="btn btn-hot btn-wide">Build My Popularity Plan</button>
+        <div class="sent" id="sent">🎉 <b>Got it.</b> Your popularity plan request is in. We'll reply within 24 hours with first ideas and the right plan for you.</div>
+        <p class="form-note">By submitting, you agree to be contacted about your growth plan. No spam. No bots. Ever.</p>
+      </form>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <a href="#home" class="logo">wannabe<em>popular</em><span style="color:var(--pink)">_</span></a>
+        <p class="muted" style="font-size:.85rem;margin-top:.6rem;max-width:34ch">A creator growth agency &amp; digital marketing studio for people who refuse to stay invisible.</p>
+      </div>
+      <nav class="f-links">
+        <a href="#home">Home</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About</a><a href="#cases">Growth Lab</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="f-base">
+      <span>© <span id="yr"></span> wannabepopular. All attention reserved.</span>
+      <span>Popularity is engineered.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---------- hash router ----------
+const pages = ['home','services','pricing','about','cases','faq','contact'];
+function route(){
+  let h = (location.hash || '#home').replace('#','');
+  if(!pages.includes(h)) h = 'home';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + h).classList.add('active');
+  document.querySelectorAll('[data-nav]').forEach(a => a.classList.toggle('on', a.dataset.nav === h));
+  document.getElementById('navlinks').classList.remove('show');
+  window.scrollTo({top:0, behavior:'instant'});
+  observeReveals();
+}
+window.addEventListener('hashchange', route);
+
+// ---------- mobile menu ----------
+document.getElementById('burger').addEventListener('click', () => {
+  document.getElementById('navlinks').classList.toggle('show');
+});
+
+// ---------- reveal on scroll ----------
+let io;
+function observeReveals(){
+  if(io) io.disconnect();
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+    document.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+    return;
+  }
+  io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.page.active .rv:not(.in)').forEach(el => io.observe(el));
+}
+
+// ---------- glitch pulses ----------
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  setInterval(() => {
+    document.querySelectorAll('.page.active .glitch').forEach(g => {
+      g.classList.remove('zap'); void g.offsetWidth; g.classList.add('zap');
+    });
+  }, 3800);
+}
+
+// ---------- ticker duplicate for seamless loop ----------
+const t = document.getElementById('ticker');
+t.innerHTML += t.innerHTML;
+
+// ---------- pricing → contact tier preselect ----------
+document.querySelectorAll('[data-plan]').forEach(b => {
+  b.addEventListener('click', () => {
+    const sel = document.getElementById('f-tier');
+    const plan = b.dataset.plan;
+    [...sel.options].forEach(o => { if(o.text.startsWith(plan)) sel.value = o.value || o.text; });
+  });
+});
+
+// ---------- faq accordion ----------
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if(!open) item.classList.add('open');
+  });
+});
+
+// ---------- contact form ----------
+document.getElementById('contactform').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('f-name'), email = document.getElementById('f-email');
+  if(!name.value.trim() || !email.value.includes('@')){
+    (!name.value.trim() ? name : email).focus();
+    return;
+  }
+  document.getElementById('sent').style.display = 'block';
+  e.target.querySelector('button[type=submit]').textContent = 'Plan Requested ✓';
+});
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+route();
+</script>
+</body>
+</html>
