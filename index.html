@@ -99,6 +99,24 @@ header{position:sticky;top:0;z-index:60;background:rgba(10,6,19,.72);backdrop-fi
 .btn-sm{padding:.7rem 1.25rem;font-size:.74rem}
 .btn-wide{width:100%}
 
+/* ===== paypal subscribe area ===== */
+.pay{margin-top:auto}
+.pay-tag{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:.75rem;text-align:center}
+.paypal-box{min-height:50px;border-radius:14px}
+.paypal-box:empty::before{content:"Loading checkout…";display:grid;place-items:center;min-height:50px;font-family:var(--mono);font-size:.72rem;color:var(--dim);border:1px dashed var(--line);border-radius:14px}
+.pay-secure{display:flex;align-items:center;justify-content:center;gap:.35rem;margin-top:.65rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.04em;color:var(--dim)}
+
+/* ===== subscription confirmation modal ===== */
+.sub-modal{position:fixed;inset:0;z-index:400;display:none;place-items:center;background:rgba(10,6,19,.82);backdrop-filter:blur(10px);padding:5vw}
+.sub-modal.show{display:grid}
+.sub-card{background:var(--card);border:1px solid rgba(204,255,0,.45);border-radius:26px;padding:2.5rem 2.2rem;max-width:460px;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,.65);animation:pagein .45s cubic-bezier(.22,1,.36,1)}
+.sub-emoji{font-size:2.8rem;line-height:1}
+.sub-card h3{margin:.7rem 0 .8rem;font-size:1.5rem}
+.sub-card>p{color:#c5bbe2;font-size:.96rem;margin-bottom:.8rem}
+.sub-id{font-family:var(--mono);font-size:.72rem;color:var(--dim);background:rgba(34,230,255,.06);border:1px solid var(--line);border-radius:10px;padding:.6rem .7rem}
+.sub-id code{color:var(--cyan);word-break:break-all}
+.sub-card .btn{margin-top:1.2rem}
+
 /* ===== hero ===== */
 .hero{padding:clamp(76px,10vw,140px) 0 clamp(64px,8vw,110px);overflow:hidden}
 .hero-grid{display:grid;grid-template-columns:1.22fr .88fr;gap:3rem;align-items:center;position:relative}
@@ -537,14 +555,14 @@ footer{border-top:1px solid var(--line);padding:3rem 0 2.2rem;background:rgba(21
           <div class="pprice">$20<small>/month</small></div>
           <p class="pfor">New creators, small personal brands, early-stage businesses</p>
           <ul><li>Monthly social media audit</li><li>Basic content direction</li><li>5 post ideas per month</li><li>Hashtag &amp; keyword suggestions</li><li>Profile optimization checklist</li><li>Monthly growth tips</li></ul>
-          <a href="#contact" class="btn btn-ghost btn-wide" data-plan="Spark">Start Small. Get Seen.</a>
+          <div class="pay"><span class="pay-tag">Start Small. Get Seen.</span><div id="pp-spark" class="paypal-box"></div><span class="pay-secure">🔒 Secure subscription via PayPal</span></div>
         </div>
         <div class="plan">
           <span class="pname">Buzz</span>
           <div class="pprice">$50<small>/month</small></div>
           <p class="pfor">Growing influencers, small brands, and side businesses</p>
           <ul><li>Everything in Spark</li><li>12 monthly content ideas</li><li>1 monthly campaign concept</li><li>Competitor visibility check</li><li>Bio &amp; profile optimization</li><li>Monthly content calendar</li><li>Basic performance review</li></ul>
-          <a href="#contact" class="btn btn-ghost btn-wide" data-plan="Buzz">Create the Buzz</a>
+          <div class="pay"><span class="pay-tag">Create the Buzz</span><div id="pp-buzz" class="paypal-box"></div><span class="pay-secure">🔒 Secure subscription via PayPal</span></div>
         </div>
         <div class="plan hot">
           <span class="flag">Most subscribed</span>
@@ -552,14 +570,14 @@ footer{border-top:1px solid var(--line);padding:3rem 0 2.2rem;background:rgba(21
           <div class="pprice">$100<small>/month</small></div>
           <p class="pfor">Serious creators, brands, and businesses ready to scale</p>
           <ul><li>Everything in Buzz</li><li>25 monthly content ideas</li><li>Weekly trend opportunities</li><li>2 campaign concepts per month</li><li>Paid ad strategy recommendations</li><li>Short-form video hooks &amp; scripts</li><li>Brand positioning review</li><li>Monthly growth report</li></ul>
-          <a href="#contact" class="btn btn-hot btn-wide" data-plan="Hype Engine">Turn Attention Into Momentum</a>
+          <div class="pay"><span class="pay-tag">Turn Attention Into Momentum</span><div id="pp-hype" class="paypal-box"></div><span class="pay-secure">🔒 Secure subscription via PayPal</span></div>
         </div>
         <div class="plan">
           <span class="pname">Fame Mode</span>
           <div class="pprice">$250<small>/month</small></div>
           <p class="pfor">Influencers, brands, founders &amp; businesses that want aggressive visibility</p>
           <ul><li>Everything in Hype Engine</li><li>Full monthly growth strategy</li><li>50 monthly content ideas</li><li>Weekly campaign planning</li><li>Viral concept development</li><li>Influencer collaboration strategy</li><li>Paid campaign direction</li><li>Landing page &amp; funnel recommendations</li><li>Priority support</li><li>Monthly executive strategy call</li><li>Advanced visibility report</li></ul>
-          <a href="#contact" class="btn btn-coral btn-wide" data-plan="Fame Mode">Go Fame Mode</a>
+          <div class="pay"><span class="pay-tag">Go Fame Mode</span><div id="pp-fame" class="paypal-box"></div><span class="pay-secure">🔒 Secure subscription via PayPal</span></div>
         </div>
       </div>
       <div class="enterprise rv">
@@ -745,8 +763,19 @@ footer{border-top:1px solid var(--line);padding:3rem 0 2.2rem;background:rgba(21
   </div>
 </footer>
 
+<div id="subModal" class="sub-modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="sub-card">
+    <div class="sub-emoji">🎉</div>
+    <h3>You're in <span class="hl-acid" id="subPlan">Fame Mode</span>.</h3>
+    <p>Your subscription is active. Our team will reach out within 24 hours to kick off your growth plan — keep an eye on your inbox.</p>
+    <p class="sub-id">Subscription reference:<br><code id="subId">—</code></p>
+    <button class="btn btn-hot" id="subClose">Let's get popular →</button>
+  </div>
+</div>
+
 <canvas id="confetti" style="position:fixed;inset:0;pointer-events:none;z-index:300"></canvas>
 
+<script src="https://www.paypal.com/sdk/js?client-id=BAAOe9e2rHWG1CmPA-E4_F0HN1sDRG4XCk5i69GIvuIS4mtrGnN5SmFwkRwWeliOm4DIajtP5wey_uzRIk&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
 <script>
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -761,8 +790,47 @@ function route(){
   document.getElementById('navlinks').classList.remove('show');
   window.scrollTo({top:0, behavior:'instant'});
   observeReveals();
+  if(h === 'pricing') renderPaypal();
 }
 window.addEventListener('hashchange', route);
+
+/* ===== paypal subscription buttons (rendered lazily when pricing opens) ===== */
+const PAYPAL_PLANS = [
+  {el:'pp-spark', name:'Spark',       plan:'P-37C82529BC452652KNIWWTQI', color:'gold'},
+  {el:'pp-buzz',  name:'Buzz',        plan:'P-92489431N7447382VNIWWT7I', color:'gold'},
+  {el:'pp-hype',  name:'Hype Engine', plan:'P-5AU93241FJ842893HNIWWUJY', color:'gold'},
+  {el:'pp-fame',  name:'Fame Mode',   plan:'P-18W49221FR217914KNIWWUSA', color:'gold'}
+];
+let paypalRendered = false, paypalTries = 0;
+function renderPaypal(){
+  if(paypalRendered) return;
+  if(!window.paypal || !window.paypal.Buttons){      // SDK still loading — retry briefly
+    if(paypalTries++ < 40) setTimeout(renderPaypal, 250);
+    return;
+  }
+  paypalRendered = true;
+  PAYPAL_PLANS.forEach(p => {
+    const box = document.getElementById(p.el);
+    if(!box) return;
+    paypal.Buttons({
+      style:{shape:'pill', color:p.color, layout:'vertical', label:'subscribe', height:46},
+      createSubscription:(data, actions) => actions.subscription.create({plan_id:p.plan}),
+      onApprove:(data) => showSubConfirm(p.name, data.subscriptionID),
+      onError:(err) => { console.error('PayPal error', err); }
+    }).render('#' + p.el);
+  });
+}
+function showSubConfirm(name, id){
+  document.getElementById('subPlan').textContent = name;
+  document.getElementById('subId').textContent = id || 'Processing — check your PayPal account';
+  document.getElementById('subModal').classList.add('show');
+  if(!reduced) burstConfetti();
+}
+document.getElementById('subClose').addEventListener('click', () =>
+  document.getElementById('subModal').classList.remove('show'));
+document.getElementById('subModal').addEventListener('click', e => {
+  if(e.target.id === 'subModal') e.currentTarget.classList.remove('show');
+});
 
 /* ===== mobile menu ===== */
 document.getElementById('burger').addEventListener('click', () =>
